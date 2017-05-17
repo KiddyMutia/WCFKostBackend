@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace WCFKostBackend
 {
-    public partial class Form1 : Form
+    public partial class RoomTypeForm : Form
     {
-        public Form1()
+        public RoomTypeForm()
         {
             InitializeComponent();
+        }
+
+        private void tb_name_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
