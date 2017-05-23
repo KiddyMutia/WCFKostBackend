@@ -7,3 +7,8 @@ C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBacke
 C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.CustomerForm.resources
 C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.LoginForm.resources
 C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.csprojResolveAssemblyReference.cache
+C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.RoomForm.resources
+C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.RoomTypeForm.resources
+C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.DisplayRent.resources
+C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.RentIn.resources
+C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.RentOut.resources

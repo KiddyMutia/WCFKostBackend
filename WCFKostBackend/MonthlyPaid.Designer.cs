@@ -1,6 +1,6 @@
 ﻿namespace WCFKostBackend
 {
-    partial class RoomForm
+    partial class MonthlyPaid
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomForm));
-            this.btn_update = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.cb_idroomtype = new System.Windows.Forms.ComboBox();
-            this.tb_name = new System.Windows.Forms.TextBox();
-            this.tb_price = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonthlyPaid));
+            this.cb_idmonthly = new System.Windows.Forms.ComboBox();
+            this.btn_rentin = new System.Windows.Forms.Button();
+            this.tb_total = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tb_idroom = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dg_room = new System.Windows.Forms.DataGridView();
+            this.dg_monthly = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,71 +45,52 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cb_stat = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_room)).BeginInit();
+            this.cb_idtrans = new System.Windows.Forms.ComboBox();
+            this.dt_date = new System.Windows.Forms.DateTimePicker();
+            this.tb_info = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_monthly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_update
+            // cb_idmonthly
             // 
-            this.btn_update.Location = new System.Drawing.Point(271, 279);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(51, 23);
-            this.btn_update.TabIndex = 62;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = true;
+            this.cb_idmonthly.FormattingEnabled = true;
+            this.cb_idmonthly.Location = new System.Drawing.Point(138, 145);
+            this.cb_idmonthly.Name = "cb_idmonthly";
+            this.cb_idmonthly.Size = new System.Drawing.Size(184, 21);
+            this.cb_idmonthly.TabIndex = 81;
+            this.cb_idmonthly.SelectedIndexChanged += new System.EventHandler(this.cb_idmonthly_SelectedIndexChanged);
             // 
-            // btn_delete
+            // btn_rentin
             // 
-            this.btn_delete.Location = new System.Drawing.Point(203, 279);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(54, 23);
-            this.btn_delete.TabIndex = 61;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_rentin.Location = new System.Drawing.Point(137, 317);
+            this.btn_rentin.Name = "btn_rentin";
+            this.btn_rentin.Size = new System.Drawing.Size(50, 23);
+            this.btn_rentin.TabIndex = 80;
+            this.btn_rentin.Text = "Rent In";
+            this.btn_rentin.UseVisualStyleBackColor = true;
             // 
-            // btn_add
+            // tb_total
             // 
-            this.btn_add.Location = new System.Drawing.Point(138, 279);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(50, 23);
-            this.btn_add.TabIndex = 60;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.tb_total.Location = new System.Drawing.Point(138, 223);
+            this.tb_total.Name = "tb_total";
+            this.tb_total.Size = new System.Drawing.Size(184, 20);
+            this.tb_total.TabIndex = 78;
+            this.tb_total.TextChanged += new System.EventHandler(this.tb_total_TextChanged);
             // 
-            // cb_idroomtype
+            // label13
             // 
-            this.cb_idroomtype.FormattingEnabled = true;
-            this.cb_idroomtype.Location = new System.Drawing.Point(138, 139);
-            this.cb_idroomtype.Name = "cb_idroomtype";
-            this.cb_idroomtype.Size = new System.Drawing.Size(184, 21);
-            this.cb_idroomtype.TabIndex = 59;
-            // 
-            // tb_name
-            // 
-            this.tb_name.Location = new System.Drawing.Point(138, 170);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(184, 20);
-            this.tb_name.TabIndex = 57;
-            // 
-            // tb_price
-            // 
-            this.tb_price.Location = new System.Drawing.Point(138, 200);
-            this.tb_price.Name = "tb_price";
-            this.tb_price.Size = new System.Drawing.Size(184, 20);
-            this.tb_price.TabIndex = 55;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label12.Location = new System.Drawing.Point(38, 236);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 13);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "Status";
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label13.Location = new System.Drawing.Point(37, 191);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 77;
+            this.label13.Text = "Date";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label11
             // 
@@ -122,23 +98,12 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label11.Location = new System.Drawing.Point(36, 200);
+            this.label11.Location = new System.Drawing.Point(37, 228);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Price";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.Location = new System.Drawing.Point(36, 170);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 13);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Name";
+            this.label11.TabIndex = 76;
+            this.label11.Text = "Total";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label9
             // 
@@ -146,18 +111,12 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(35, 139);
+            this.label9.Location = new System.Drawing.Point(37, 148);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 13);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "ID Room Type";
-            // 
-            // tb_idroom
-            // 
-            this.tb_idroom.Location = new System.Drawing.Point(138, 107);
-            this.tb_idroom.Name = "tb_idroom";
-            this.tb_idroom.Size = new System.Drawing.Size(184, 20);
-            this.tb_idroom.TabIndex = 47;
+            this.label9.Size = new System.Drawing.Size(97, 13);
+            this.label9.TabIndex = 75;
+            this.label9.Text = "ID Monthly Paid";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -165,20 +124,21 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(34, 112);
+            this.label8.Location = new System.Drawing.Point(37, 104);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "ID Room";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "ID Transaction";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // dg_room
+            // dg_monthly
             // 
-            this.dg_room.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dg_room.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_room.Location = new System.Drawing.Point(369, 25);
-            this.dg_room.Name = "dg_room";
-            this.dg_room.Size = new System.Drawing.Size(327, 325);
-            this.dg_room.TabIndex = 45;
+            this.dg_monthly.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dg_monthly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_monthly.Location = new System.Drawing.Point(369, 25);
+            this.dg_monthly.Name = "dg_monthly";
+            this.dg_monthly.Size = new System.Drawing.Size(327, 325);
+            this.dg_monthly.TabIndex = 72;
             // 
             // label7
             // 
@@ -186,11 +146,11 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label7.Location = new System.Drawing.Point(110, 27);
+            this.label7.Location = new System.Drawing.Point(64, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 33);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Room Form";
+            this.label7.Size = new System.Drawing.Size(225, 33);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "Monthly Paid Form";
             // 
             // label6
             // 
@@ -199,7 +159,7 @@
             this.label6.Location = new System.Drawing.Point(369, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(325, 325);
-            this.label6.TabIndex = 43;
+            this.label6.TabIndex = 70;
             this.label6.Text = resources.GetString("label6.Text");
             // 
             // label4
@@ -209,7 +169,7 @@
             this.label4.Location = new System.Drawing.Point(20, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(325, 273);
-            this.label4.TabIndex = 42;
+            this.label4.TabIndex = 69;
             this.label4.Text = "           \r\n\r\n\r\n\r\n\r\n                                          \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n" +
                 "\r\n\r\n\r\n\r\n\r\n\r\n                                                                    " +
                 "                                      ";
@@ -221,7 +181,7 @@
             this.label3.Location = new System.Drawing.Point(20, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(325, 39);
-            this.label3.TabIndex = 41;
+            this.label3.TabIndex = 68;
             this.label3.Text = "           \r\n \r\n                                                                 " +
                 "                                         ";
             // 
@@ -232,7 +192,7 @@
             this.label2.Location = new System.Drawing.Point(361, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(340, 338);
-            this.label2.TabIndex = 40;
+            this.label2.TabIndex = 67;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // label1
@@ -242,7 +202,7 @@
             this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 52);
-            this.label1.TabIndex = 39;
+            this.label1.TabIndex = 66;
             this.label1.Text = "           \r\n  \r\n                                                                " +
                 "                                               \r\n\r\n";
             // 
@@ -253,7 +213,7 @@
             this.label5.Location = new System.Drawing.Point(13, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(340, 286);
-            this.label5.TabIndex = 38;
+            this.label5.TabIndex = 65;
             this.label5.Text = resources.GetString("label5.Text");
             // 
             // pictureBox1
@@ -263,36 +223,63 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(713, 371);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabIndex = 64;
             this.pictureBox1.TabStop = false;
             // 
-            // cb_stat
+            // cb_idtrans
             // 
-            this.cb_stat.FormattingEnabled = true;
-            this.cb_stat.Location = new System.Drawing.Point(138, 233);
-            this.cb_stat.Name = "cb_stat";
-            this.cb_stat.Size = new System.Drawing.Size(184, 21);
-            this.cb_stat.TabIndex = 63;
+            this.cb_idtrans.FormattingEnabled = true;
+            this.cb_idtrans.Location = new System.Drawing.Point(138, 104);
+            this.cb_idtrans.Name = "cb_idtrans";
+            this.cb_idtrans.Size = new System.Drawing.Size(184, 21);
+            this.cb_idtrans.TabIndex = 83;
+            this.cb_idtrans.SelectedIndexChanged += new System.EventHandler(this.cb_idtrans_SelectedIndexChanged);
             // 
-            // RoomForm
+            // dt_date
+            // 
+            this.dt_date.Location = new System.Drawing.Point(138, 186);
+            this.dt_date.Name = "dt_date";
+            this.dt_date.Size = new System.Drawing.Size(184, 20);
+            this.dt_date.TabIndex = 84;
+            this.dt_date.ValueChanged += new System.EventHandler(this.dt_date_ValueChanged);
+            // 
+            // tb_info
+            // 
+            this.tb_info.Location = new System.Drawing.Point(138, 260);
+            this.tb_info.Multiline = true;
+            this.tb_info.Name = "tb_info";
+            this.tb_info.Size = new System.Drawing.Size(184, 50);
+            this.tb_info.TabIndex = 86;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label10.Location = new System.Drawing.Point(38, 262);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 13);
+            this.label10.TabIndex = 85;
+            this.label10.Text = "Info";
+            // 
+            // MonthlyPaid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 371);
-            this.Controls.Add(this.cb_stat);
-            this.Controls.Add(this.btn_update);
-            this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.cb_idroomtype);
-            this.Controls.Add(this.tb_name);
-            this.Controls.Add(this.tb_price);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.ClientSize = new System.Drawing.Size(708, 364);
+            this.Controls.Add(this.tb_info);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.dt_date);
+            this.Controls.Add(this.cb_idtrans);
+            this.Controls.Add(this.cb_idmonthly);
+            this.Controls.Add(this.btn_rentin);
+            this.Controls.Add(this.tb_total);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.tb_idroom);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dg_room);
+            this.Controls.Add(this.dg_monthly);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -301,10 +288,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
-            this.MaximizeBox = false;
-            this.Name = "RoomForm";
-            this.Text = "RoomForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dg_room)).EndInit();
+            this.Name = "MonthlyPaid";
+            this.Text = "MonthlyPaid";
+            ((System.ComponentModel.ISupportInitialize)(this.dg_monthly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -313,19 +299,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.ComboBox cb_idroomtype;
-        private System.Windows.Forms.TextBox tb_name;
-        private System.Windows.Forms.TextBox tb_price;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cb_idmonthly;
+        private System.Windows.Forms.Button btn_rentin;
+        private System.Windows.Forms.TextBox tb_total;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tb_idroom;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dg_room;
+        private System.Windows.Forms.DataGridView dg_monthly;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
@@ -334,6 +315,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cb_stat;
+        private System.Windows.Forms.ComboBox cb_idtrans;
+        private System.Windows.Forms.DateTimePicker dt_date;
+        private System.Windows.Forms.TextBox tb_info;
+        private System.Windows.Forms.Label label10;
+
     }
 }
