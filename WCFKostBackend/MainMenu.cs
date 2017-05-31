@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace WCFKostBackend
 {
-    public partial class LoginForm : Form
+    public partial class MainMenu : Form
     {
-        public LoginForm()
+        public MainMenu()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_login_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

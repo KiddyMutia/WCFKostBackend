@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonthlyPaid));
-            this.cb_idmonthly = new System.Windows.Forms.ComboBox();
             this.btn_rentin = new System.Windows.Forms.Button();
             this.tb_total = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dg_monthly = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,18 +47,11 @@
             this.dt_date = new System.Windows.Forms.DateTimePicker();
             this.tb_info = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_idroom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_monthly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cb_idmonthly
-            // 
-            this.cb_idmonthly.FormattingEnabled = true;
-            this.cb_idmonthly.Location = new System.Drawing.Point(138, 145);
-            this.cb_idmonthly.Name = "cb_idmonthly";
-            this.cb_idmonthly.Size = new System.Drawing.Size(184, 21);
-            this.cb_idmonthly.TabIndex = 81;
-            this.cb_idmonthly.SelectedIndexChanged += new System.EventHandler(this.cb_idmonthly_SelectedIndexChanged);
             // 
             // btn_rentin
             // 
@@ -85,7 +76,7 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label13.Location = new System.Drawing.Point(37, 191);
+            this.label13.Location = new System.Drawing.Point(39, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 77;
@@ -104,19 +95,6 @@
             this.label11.TabIndex = 76;
             this.label11.Text = "Total";
             this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(37, 148);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 13);
-            this.label9.TabIndex = 75;
-            this.label9.Text = "ID Monthly Paid";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -237,7 +215,7 @@
             // 
             // dt_date
             // 
-            this.dt_date.Location = new System.Drawing.Point(138, 186);
+            this.dt_date.Location = new System.Drawing.Point(137, 152);
             this.dt_date.Name = "dt_date";
             this.dt_date.Size = new System.Drawing.Size(184, 20);
             this.dt_date.TabIndex = 84;
@@ -263,21 +241,40 @@
             this.label10.TabIndex = 85;
             this.label10.Text = "Info";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label9.Location = new System.Drawing.Point(37, 188);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.TabIndex = 87;
+            this.label9.Text = "ID Room";
+            // 
+            // tb_idroom
+            // 
+            this.tb_idroom.Location = new System.Drawing.Point(137, 188);
+            this.tb_idroom.Name = "tb_idroom";
+            this.tb_idroom.Size = new System.Drawing.Size(184, 20);
+            this.tb_idroom.TabIndex = 88;
+            // 
             // MonthlyPaid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 364);
+            this.Controls.Add(this.tb_idroom);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_info);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dt_date);
             this.Controls.Add(this.cb_idtrans);
-            this.Controls.Add(this.cb_idmonthly);
             this.Controls.Add(this.btn_rentin);
             this.Controls.Add(this.tb_total);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dg_monthly);
             this.Controls.Add(this.label7);
@@ -299,12 +296,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cb_idmonthly;
         private System.Windows.Forms.Button btn_rentin;
         private System.Windows.Forms.TextBox tb_total;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dg_monthly;
         private System.Windows.Forms.Label label7;
@@ -319,6 +314,8 @@
         private System.Windows.Forms.DateTimePicker dt_date;
         private System.Windows.Forms.TextBox tb_info;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_idroom;
 
     }
 }

@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomTypeForm));
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.tb_facilities = new System.Windows.Forms.TextBox();
+            this.tb_info = new System.Windows.Forms.TextBox();
             this.tb_price = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.Info = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_idroomtype = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,57 +49,61 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dg_roomtype)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(271, 303);
+            this.btn_update.Location = new System.Drawing.Point(138, 292);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(51, 23);
             this.btn_update.TabIndex = 62;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(203, 303);
+            this.btn_delete.Location = new System.Drawing.Point(201, 292);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(54, 23);
             this.btn_delete.TabIndex = 61;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(138, 303);
+            this.btn_add.Location = new System.Drawing.Point(138, 292);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(50, 23);
             this.btn_add.TabIndex = 60;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // tb_name
             // 
-            this.tb_name.Location = new System.Drawing.Point(138, 147);
+            this.tb_name.Location = new System.Drawing.Point(138, 145);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(184, 20);
             this.tb_name.TabIndex = 57;
             this.tb_name.TextChanged += new System.EventHandler(this.tb_name_TextChanged);
             // 
-            // tb_facilities
+            // tb_info
             // 
-            this.tb_facilities.Location = new System.Drawing.Point(138, 184);
-            this.tb_facilities.Multiline = true;
-            this.tb_facilities.Name = "tb_facilities";
-            this.tb_facilities.Size = new System.Drawing.Size(184, 52);
-            this.tb_facilities.TabIndex = 56;
+            this.tb_info.Location = new System.Drawing.Point(138, 225);
+            this.tb_info.Multiline = true;
+            this.tb_info.Name = "tb_info";
+            this.tb_info.Size = new System.Drawing.Size(184, 52);
+            this.tb_info.TabIndex = 56;
             // 
             // tb_price
             // 
-            this.tb_price.Location = new System.Drawing.Point(138, 254);
+            this.tb_price.Location = new System.Drawing.Point(138, 182);
             this.tb_price.Name = "tb_price";
             this.tb_price.Size = new System.Drawing.Size(184, 20);
             this.tb_price.TabIndex = 55;
@@ -109,23 +114,23 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label11.Location = new System.Drawing.Point(44, 258);
+            this.label11.Location = new System.Drawing.Point(43, 183);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(36, 13);
             this.label11.TabIndex = 50;
             this.label11.Text = "Price";
             // 
-            // label10
+            // Info
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.Location = new System.Drawing.Point(41, 197);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Facilities";
+            this.Info.AutoSize = true;
+            this.Info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Info.Location = new System.Drawing.Point(43, 228);
+            this.Info.Name = "Info";
+            this.Info.Size = new System.Drawing.Size(57, 13);
+            this.Info.TabIndex = 49;
+            this.Info.Text = "Facilities";
             // 
             // label9
             // 
@@ -133,7 +138,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(40, 149);
+            this.label9.Location = new System.Drawing.Point(40, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 48;
@@ -141,7 +146,8 @@
             // 
             // tb_idroomtype
             // 
-            this.tb_idroomtype.Location = new System.Drawing.Point(138, 110);
+            this.tb_idroomtype.Enabled = false;
+            this.tb_idroomtype.Location = new System.Drawing.Point(138, 108);
             this.tb_idroomtype.Name = "tb_idroomtype";
             this.tb_idroomtype.Size = new System.Drawing.Size(184, 20);
             this.tb_idroomtype.TabIndex = 47;
@@ -160,12 +166,14 @@
             // 
             // dg_roomtype
             // 
+            this.dg_roomtype.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_roomtype.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dg_roomtype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_roomtype.Location = new System.Drawing.Point(369, 25);
             this.dg_roomtype.Name = "dg_roomtype";
-            this.dg_roomtype.Size = new System.Drawing.Size(327, 325);
+            this.dg_roomtype.Size = new System.Drawing.Size(444, 325);
             this.dg_roomtype.TabIndex = 45;
+            this.dg_roomtype.SelectionChanged += new System.EventHandler(this.dg_roomtype_SelectionChanged);
             // 
             // label7
             // 
@@ -218,7 +226,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(361, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 338);
+            this.label2.Size = new System.Drawing.Size(460, 338);
             this.label2.TabIndex = 40;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -243,29 +251,38 @@
             this.label5.TabIndex = 38;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // pictureBox1
+            // btn_reset
             // 
-            this.pictureBox1.Image = global::WCFKostBackend.Properties.Resources.intro5;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(713, 371);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.btn_reset.BackgroundImage = global::WCFKostBackend.Properties.Resources.undo_small;
+            this.btn_reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_reset.Location = new System.Drawing.Point(292, 292);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(30, 23);
+            this.btn_reset.TabIndex = 63;
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // RoomTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 370);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(831, 370);
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.tb_name);
-            this.Controls.Add(this.tb_facilities);
+            this.Controls.Add(this.tb_info);
             this.Controls.Add(this.tb_price);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Info);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_idroomtype);
             this.Controls.Add(this.label8);
@@ -277,12 +294,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "RoomTypeForm";
             this.Text = "RoomTypeForm";
+            this.Load += new System.EventHandler(this.RoomTypeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_roomtype)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,10 +311,10 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.TextBox tb_name;
-        private System.Windows.Forms.TextBox tb_facilities;
+        private System.Windows.Forms.TextBox tb_info;
         private System.Windows.Forms.TextBox tb_price;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label Info;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_idroomtype;
         private System.Windows.Forms.Label label8;
@@ -309,6 +326,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

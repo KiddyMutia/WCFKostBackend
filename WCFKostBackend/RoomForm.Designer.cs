@@ -49,15 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cb_stat = new System.Windows.Forms.ComboBox();
+            this.btn_reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_room)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(271, 279);
+            this.btn_update.Location = new System.Drawing.Point(138, 279);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(51, 23);
             this.btn_update.TabIndex = 62;
@@ -154,6 +153,7 @@
             // 
             // tb_idroom
             // 
+            this.tb_idroom.Enabled = false;
             this.tb_idroom.Location = new System.Drawing.Point(138, 107);
             this.tb_idroom.Name = "tb_idroom";
             this.tb_idroom.Size = new System.Drawing.Size(184, 20);
@@ -173,12 +173,14 @@
             // 
             // dg_room
             // 
+            this.dg_room.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_room.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dg_room.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_room.Location = new System.Drawing.Point(369, 25);
             this.dg_room.Name = "dg_room";
-            this.dg_room.Size = new System.Drawing.Size(327, 325);
+            this.dg_room.Size = new System.Drawing.Size(372, 325);
             this.dg_room.TabIndex = 45;
+            this.dg_room.SelectionChanged += new System.EventHandler(this.dg_room_SelectionChanged);
             // 
             // label7
             // 
@@ -231,7 +233,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(361, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 338);
+            this.label2.Size = new System.Drawing.Size(388, 338);
             this.label2.TabIndex = 40;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -256,29 +258,36 @@
             this.label5.TabIndex = 38;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WCFKostBackend.Properties.Resources.intro5;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(713, 371);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            // 
             // cb_stat
             // 
             this.cb_stat.FormattingEnabled = true;
+            this.cb_stat.Items.AddRange(new object[] {
+            "Available",
+            "Not Available"});
             this.cb_stat.Location = new System.Drawing.Point(138, 233);
             this.cb_stat.Name = "cb_stat";
             this.cb_stat.Size = new System.Drawing.Size(184, 21);
             this.cb_stat.TabIndex = 63;
             // 
+            // btn_reset
+            // 
+            this.btn_reset.BackgroundImage = global::WCFKostBackend.Properties.Resources.undo_small;
+            this.btn_reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_reset.Location = new System.Drawing.Point(292, 279);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(30, 23);
+            this.btn_reset.TabIndex = 64;
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
             // RoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 371);
+            this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(764, 371);
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.cb_stat);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_delete);
@@ -300,12 +309,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "RoomForm";
             this.Text = "RoomForm";
+            this.Load += new System.EventHandler(this.RoomForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_room)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,7 +341,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cb_stat;
+        private System.Windows.Forms.Button btn_reset;
     }
 }
