@@ -297,6 +297,7 @@
             this.MaximizeBox = false;
             this.Name = "RoomTypeForm";
             this.Text = "RoomTypeForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RoomTypeForm_FormClosed);
             this.Load += new System.EventHandler(this.RoomTypeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_roomtype)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -112,6 +112,9 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MonthlyPaid.resx">
       <DependentUpon>MonthlyPaid.cs</DependentUpon>
     </EmbeddedResource>

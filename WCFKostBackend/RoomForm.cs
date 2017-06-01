@@ -48,7 +48,29 @@ namespace WCFKostBackend
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
-
+            Reset();
+        }
+        private void Reset()
+        {
+            btn_update.Visible = false;
+            btn_add.Visible = true;
+            btn_delete.Visible = false;
+            btn_reset.Visible = false;
+            cb_idroomtype.SelectedIndex = 0;
+            tb_name.Text = null;
+            cb_stat.SelectedIndex = 0;
+            AutoGenerate();
+        }
+        private int ValidateData()
+        {
+            int flag = 0;            
+            if (tb_name.Text == "")
+            {
+                tb_name.Focus();
+                errorProvider1.SetError(tb_name, "Please Fill in The Name");
+                flag = 1;
+            }
+            return flag;
         }
           
         private void AutoGenerate()
@@ -98,12 +120,11 @@ namespace WCFKostBackend
                 string id_room = row.Cells[0].Value.ToString();
                 string id_room_type = row.Cells[1].Value.ToString();
                 string name = row.Cells[2].Value.ToString();
-                string price = row.Cells[3].Value.ToString();
-                string status = row.Cells[4].Value.ToString();
+                string status = row.Cells[3].Value.ToString();
 
+                tb_idroom.Text = id_room;
                 cb_idroomtype.Text = id_room_type;
                 tb_name.Text = name;
-                tb_price.Text = price;
                 cb_stat.Text = status;
 
                 btn_update.Visible = true;
@@ -134,6 +155,112 @@ namespace WCFKostBackend
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
+            if (ValidateData() == 0)
+            {
+                Koneksi kon = new Koneksi();
+                SqlConnection sqlcon = kon.getConnection();
+                string msg = string.Empty;
+                using (sqlcon)
+                {
+                    sqlcon.Open();
+                    string sql = "insert into tb_room (id_room_type, name, status) values( @idrt, @name, @status)";
+                    SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                    using (sqlcom)
+                    {
+                        sqlcom.Parameters.AddWithValue("@idrt", cb_idroomtype.Text);
+                        sqlcom.Parameters.AddWithValue("@name", tb_name.Text);
+                        sqlcom.Parameters.AddWithValue("@status", cb_stat.Text);
+                        int res = sqlcom.ExecuteNonQuery();
+                        msg = (res != 0 ? "Data has been saved." : "Oops, something went wrong.");
+                    }
+                    sqlcon.Close();
+                }
+                MessageBox.Show(msg);
+                LoadTable();
+                ClearForm();
+                AutoGenerate();
+            }
+            else
+            {
+                MessageBox.Show("Please Fix The Error");
+            }
+        }
+        private void ClearForm()
+        {
+            tb_name.Text = null;
+            cb_idroomtype.SelectedIndex = 0;
+            cb_stat.SelectedIndex = 0;
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            if (ValidateData() == 0)
+            {
+                Koneksi kon = new Koneksi();
+                SqlConnection sqlcon = kon.getConnection();
+                string msg = string.Empty;
+                using (sqlcon)
+                {
+                    sqlcon.Open();
+                    string sql = "update tb_room set name = @name, status = @status, id_room_type = @idrt where id_room = @id";
+                    SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                    using (sqlcom)
+                    {
+                        sqlcom.Parameters.AddWithValue("@id", tb_idroom.Text);
+                        sqlcom.Parameters.AddWithValue("@idrt", cb_idroomtype.Text);
+                        sqlcom.Parameters.AddWithValue("@name", tb_name.Text);
+                        sqlcom.Parameters.AddWithValue("@status", cb_stat.Text);
+                        int res = sqlcom.ExecuteNonQuery();
+                        msg = (res != 0 ? "Data has been updated." : "Oops, something went wrong.");
+                    }
+                    sqlcon.Close();
+                }
+                MessageBox.Show(msg);
+                Reset();
+                AutoGenerate();
+                LoadTable();
+            }
+            else
+            {
+                MessageBox.Show("Please Fix The Error");
+            }
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            Koneksi kon = new Koneksi();
+            SqlConnection sqlcon = kon.getConnection();
+            string msg = string.Empty;
+            using (sqlcon)
+            {
+                sqlcon.Open();
+                string sql = "delete from tb_room where id_room = @id";
+                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                using (sqlcon)
+                {
+                    sqlcom.Parameters.AddWithValue("@id", tb_idroom.Text);
+                    int res = sqlcom.ExecuteNonQuery();
+                    msg = (res != 0 ? "Data has been deleted " : "Oops, something went wrong");
+
+                }
+                sqlcon.Close();
+            }
+            MessageBox.Show(msg);
+            Reset();
+            AutoGenerate();
+            LoadTable();
+        }
+
+        private void RoomForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            MainMenu mm = new MainMenu();
+            mm.Show();
         }
     }
 }

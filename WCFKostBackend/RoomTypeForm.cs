@@ -143,8 +143,8 @@ namespace WCFKostBackend
                 string kode = "1";
                 string no = "1";
                 sqlconn.Open();
-                string sqlcode = "select  top 1   SUBSTRING(id_room_type,1,1)  from tb_room_type order by id_room_type desc";
-                string sqlnum = " select  top 1   SUBSTRING(id_room_type,2,3)  from tb_room_type order by id_room_type desc";
+                string sqlcode = "select  top 1   SUBSTRING(id_room_type,1,3)  from tb_room_type order by id_room_type desc";
+                string sqlnum = " select  top 1   SUBSTRING(id_room_type,4,1)  from tb_room_type order by id_room_type desc";
                 SqlCommand sqlcomcode = new SqlCommand(sqlcode, sqlconn);
                 SqlCommand sqlcomnum = new SqlCommand(sqlnum, sqlconn);
 
@@ -260,6 +260,13 @@ namespace WCFKostBackend
             {
                 MessageBox.Show("Please Fix The Error");
             }
+        }
+
+        private void RoomTypeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            MainMenu mm = new MainMenu();
+            mm.Show();
         }
     }
 }

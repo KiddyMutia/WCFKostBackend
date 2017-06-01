@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,9 +55,9 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dg_customer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -86,7 +87,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(360, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 338);
+            this.label2.Size = new System.Drawing.Size(538, 338);
             this.label2.TabIndex = 12;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -137,11 +138,12 @@
             // 
             // dg_customer
             // 
+            this.dg_customer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_customer.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dg_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_customer.Location = new System.Drawing.Point(368, 24);
             this.dg_customer.Name = "dg_customer";
-            this.dg_customer.Size = new System.Drawing.Size(327, 325);
+            this.dg_customer.Size = new System.Drawing.Size(524, 325);
             this.dg_customer.TabIndex = 17;
             // 
             // label8
@@ -150,7 +152,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(33, 87);
+            this.label8.Location = new System.Drawing.Point(38, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 18;
@@ -170,7 +172,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(34, 114);
+            this.label9.Location = new System.Drawing.Point(39, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 20;
@@ -183,7 +185,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.Location = new System.Drawing.Point(37, 145);
+            this.label10.Location = new System.Drawing.Point(37, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 21;
@@ -272,14 +274,19 @@
             this.dt_birthdate.Name = "dt_birthdate";
             this.dt_birthdate.Size = new System.Drawing.Size(184, 20);
             this.dt_birthdate.TabIndex = 32;
+            this.dt_birthdate.Value = new System.DateTime(2000, 6, 5, 0, 0, 0, 0);
             // 
             // cb_cardtype
             // 
             this.cb_cardtype.FormattingEnabled = true;
+            this.cb_cardtype.Items.AddRange(new object[] {
+            "KTP",
+            "KTM"});
             this.cb_cardtype.Location = new System.Drawing.Point(137, 253);
             this.cb_cardtype.Name = "cb_cardtype";
             this.cb_cardtype.Size = new System.Drawing.Size(184, 21);
             this.cb_cardtype.TabIndex = 33;
+            this.cb_cardtype.Text = "KTP";
             // 
             // btn_add
             // 
@@ -289,6 +296,7 @@
             this.btn_add.TabIndex = 34;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_delete
             // 
@@ -308,22 +316,17 @@
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // errorProvider1
             // 
-            this.pictureBox1.Image = global::WCFKostBackend.Properties.Resources.intro5;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(713, 371);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 366);
+            this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(904, 366);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
@@ -349,12 +352,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerForm_FormClosed);
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_customer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,7 +366,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -388,5 +391,6 @@
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

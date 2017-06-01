@@ -25,5 +25,10 @@ namespace WCFKostBackend
         {
 
         }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

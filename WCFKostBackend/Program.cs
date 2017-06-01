@@ -15,7 +15,7 @@ namespace WCFKostBackend
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RoomForm());
+            Application.Run(new MainMenu());
         }
     }
 }

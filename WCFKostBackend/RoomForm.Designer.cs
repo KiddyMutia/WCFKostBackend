@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomForm));
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.cb_idroomtype = new System.Windows.Forms.ComboBox();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.tb_price = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_idroom = new System.Windows.Forms.TextBox();
@@ -51,17 +50,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cb_stat = new System.Windows.Forms.ComboBox();
             this.btn_reset = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dg_room)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(138, 279);
+            this.btn_update.Location = new System.Drawing.Point(137, 279);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(51, 23);
             this.btn_update.TabIndex = 62;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -71,6 +73,7 @@
             this.btn_delete.TabIndex = 61;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
@@ -80,28 +83,22 @@
             this.btn_add.TabIndex = 60;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // cb_idroomtype
             // 
             this.cb_idroomtype.FormattingEnabled = true;
-            this.cb_idroomtype.Location = new System.Drawing.Point(138, 139);
+            this.cb_idroomtype.Location = new System.Drawing.Point(138, 148);
             this.cb_idroomtype.Name = "cb_idroomtype";
             this.cb_idroomtype.Size = new System.Drawing.Size(184, 21);
             this.cb_idroomtype.TabIndex = 59;
             // 
             // tb_name
             // 
-            this.tb_name.Location = new System.Drawing.Point(138, 170);
+            this.tb_name.Location = new System.Drawing.Point(138, 189);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(184, 20);
             this.tb_name.TabIndex = 57;
-            // 
-            // tb_price
-            // 
-            this.tb_price.Location = new System.Drawing.Point(138, 200);
-            this.tb_price.Name = "tb_price";
-            this.tb_price.Size = new System.Drawing.Size(184, 20);
-            this.tb_price.TabIndex = 55;
             // 
             // label12
             // 
@@ -115,25 +112,13 @@
             this.label12.TabIndex = 51;
             this.label12.Text = "Status";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label11.Location = new System.Drawing.Point(36, 200);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Price";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.Location = new System.Drawing.Point(36, 170);
+            this.label10.Location = new System.Drawing.Point(36, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 49;
@@ -145,7 +130,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(35, 139);
+            this.label9.Location = new System.Drawing.Point(35, 151);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 48;
@@ -268,6 +253,7 @@
             this.cb_stat.Name = "cb_stat";
             this.cb_stat.Size = new System.Drawing.Size(184, 21);
             this.cb_stat.TabIndex = 63;
+            this.cb_stat.Text = "Available";
             // 
             // btn_reset
             // 
@@ -279,6 +265,10 @@
             this.btn_reset.TabIndex = 64;
             this.btn_reset.UseVisualStyleBackColor = true;
             this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // RoomForm
             // 
@@ -294,9 +284,7 @@
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.cb_idroomtype);
             this.Controls.Add(this.tb_name);
-            this.Controls.Add(this.tb_price);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_idroom);
@@ -312,8 +300,10 @@
             this.MaximizeBox = false;
             this.Name = "RoomForm";
             this.Text = "RoomForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RoomForm_FormClosed);
             this.Load += new System.EventHandler(this.RoomForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_room)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,9 +316,7 @@
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.ComboBox cb_idroomtype;
         private System.Windows.Forms.TextBox tb_name;
-        private System.Windows.Forms.TextBox tb_price;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_idroom;
@@ -343,5 +331,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_stat;
         private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
