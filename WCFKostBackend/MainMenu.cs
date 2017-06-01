@@ -55,5 +55,33 @@ namespace WCFKostBackend
             LoginForm lf = new LoginForm();
             lf.Show();
         }
+
+        private void btn_reservation_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReservationForm rf = new ReservationForm();
+            rf.Show();
+        }
+
+        private void btn_transaction_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RentIn ri = new RentIn();
+            ri.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RentOut ro = new RentOut();
+            ro.Show();
+        }
+
+        private void btn_monthlypaid_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MonthlyPaid mp = new MonthlyPaid();
+            mp.Show();
+        }
     }
 }

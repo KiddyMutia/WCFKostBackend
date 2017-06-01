@@ -15,3 +15,4 @@ C:\Users\Hp 14\Documents\Visual Studio 2010\Projects\WCFKostBackend\WCFKostBacke
 C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.MonthlyPaid.resources
 C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.MainMenu.resources
 C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.Admin.resources
+C:\Users\Hp 14\documents\visual studio 2010\Projects\WCFKostBackend\WCFKostBackend\obj\x86\Debug\WCFKostBackend.ReservationForm.resources

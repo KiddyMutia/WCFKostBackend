@@ -97,6 +97,12 @@
     <Compile Include="RentOut.Designer.cs">
       <DependentUpon>RentOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationForm.Designer.cs">
+      <DependentUpon>ReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RentOut.resx">
       <DependentUpon>RentOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationForm.resx">
+      <DependentUpon>ReservationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
