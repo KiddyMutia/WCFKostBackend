@@ -37,7 +37,9 @@ namespace WCFKostBackend
 
         private void btn_admin_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Admin af = new Admin();
+            af.Show();
         }
 
         private void btn_roomtype_Click(object sender, EventArgs e)
