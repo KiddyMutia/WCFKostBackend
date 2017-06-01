@@ -31,6 +31,9 @@ namespace WCFKostBackend
         {
             LoadTable();
             AutoGenerate();
+            btn_delete.Visible = false;
+            btn_update.Visible = false;
+            btn_reset.Visible = false;
         }
         private void LoadTable()
         {
@@ -136,7 +139,7 @@ namespace WCFKostBackend
         private void ClearForm()
         {
             tb_name.Text = null;
-            dt_birthdate.Value = DateTime.Parse("2/5/2000");
+            dt_birthdate.Value = DateTime.Parse("June 5, 2000");
             tb_address.Text = null;
             tb_phone.Text = null;
             cb_cardtype.SelectedIndex = 0;
@@ -220,6 +223,111 @@ namespace WCFKostBackend
                 
                 tb_idcust.Text = kode + no;
             }
+        }
+
+        private void dg_customer_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dg_customer.SelectedRows)
+            {
+                string id = row.Cells[0].Value.ToString();
+                string name = row.Cells[1].Value.ToString();
+                string birthdate = row.Cells[2].Value.ToString();
+                string address = row.Cells[3].Value.ToString();
+                string phone = row.Cells[4].Value.ToString();
+                string ctype = row.Cells[5].Value.ToString();
+                string cnum = row.Cells[6].Value.ToString();
+
+                tb_idcust.Text = id;
+                tb_name.Text = name;
+                dt_birthdate.Value = DateTime.Parse(birthdate);
+                tb_address.Text = address;
+                tb_phone.Text = phone;
+                cb_cardtype.Text = ctype;
+                tb_cardnumber.Text = cnum;
+
+                btn_update.Visible = true;
+                btn_add.Visible = false;
+                btn_delete.Visible = true;
+                tb_idcust.Enabled = false;
+                btn_reset.Visible = true;
+            }
+        }
+
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+        private void Reset()
+        {
+            btn_update.Visible = false;
+            btn_add.Visible = true;
+            btn_delete.Visible = false;
+            btn_reset.Visible = false;
+            ClearForm();
+            AutoGenerate();
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            if (ValidateData() == 0)
+            {
+                Koneksi kon = new Koneksi();
+                SqlConnection sqlcon = kon.getConnection();
+                string msg = string.Empty;
+                string birthday = dt_birthdate.Value.ToString("yyyy-MM-dd");
+                using (sqlcon)
+                {
+                    sqlcon.Open();
+                    string sql = "update tb_customer set name = @name, birthdate = @birth, address = @address, phonenumber=@phone, card_type=@ctype,card_number=@cnum where id_customer = @id";
+                    SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                    using (sqlcom)
+                    {
+                        sqlcom.Parameters.AddWithValue("@id", tb_idcust.Text);
+                        sqlcom.Parameters.AddWithValue("@name", tb_name.Text);
+                        sqlcom.Parameters.AddWithValue("@birth", birthday);
+                        sqlcom.Parameters.AddWithValue("@address", tb_address.Text);
+                        sqlcom.Parameters.AddWithValue("@phone", tb_phone.Text);
+                        sqlcom.Parameters.AddWithValue("@ctype", cb_cardtype.Text);
+                        sqlcom.Parameters.AddWithValue("@cnum", tb_cardnumber.Text);
+                        int res = sqlcom.ExecuteNonQuery();
+                        msg = (res != 0 ? "Data has been updated." : "Oops, something went wrong.");
+                    }
+                    sqlcon.Close();
+                }
+                MessageBox.Show(msg);
+                Reset();
+                AutoGenerate();
+                LoadTable();
+            }
+            else
+            {
+                MessageBox.Show("Please Fix The Error");
+            }
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            Koneksi kon = new Koneksi();
+            SqlConnection sqlcon = kon.getConnection();
+            string msg = string.Empty;
+            using (sqlcon)
+            {
+                sqlcon.Open();
+                string sql = "delete from tb_customer where id_customer = @id";
+                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                using (sqlcon)
+                {
+                    sqlcom.Parameters.AddWithValue("@id", tb_idcust.Text);
+                    int res = sqlcom.ExecuteNonQuery();
+                    msg = (res != 0 ? "Data has been deleted " : "Oops, something went wrong");
+
+                }
+                sqlcon.Close();
+            }
+            MessageBox.Show(msg);
+            Reset();
+            AutoGenerate();
+            LoadTable();
         }
         
     }

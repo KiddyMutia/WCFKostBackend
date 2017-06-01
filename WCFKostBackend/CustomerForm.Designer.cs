@@ -56,6 +56,7 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btn_reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -145,6 +146,7 @@
             this.dg_customer.Name = "dg_customer";
             this.dg_customer.Size = new System.Drawing.Size(524, 325);
             this.dg_customer.TabIndex = 17;
+            this.dg_customer.SelectionChanged += new System.EventHandler(this.dg_customer_SelectionChanged);
             // 
             // label8
             // 
@@ -306,19 +308,32 @@
             this.btn_delete.TabIndex = 35;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(270, 309);
+            this.btn_update.Location = new System.Drawing.Point(137, 309);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(51, 23);
             this.btn_update.TabIndex = 36;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.BackgroundImage = global::WCFKostBackend.Properties.Resources.undo_small;
+            this.btn_reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_reset.Location = new System.Drawing.Point(291, 309);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(30, 23);
+            this.btn_reset.TabIndex = 64;
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // CustomerForm
             // 
@@ -327,6 +342,7 @@
             this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(904, 366);
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
@@ -392,5 +408,6 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btn_reset;
     }
 }
