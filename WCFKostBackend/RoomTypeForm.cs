@@ -142,11 +142,18 @@ namespace WCFKostBackend
             {
                 string kode = "1";
                 string no = "1";
+                string kodeten = "1";
+                string noten = "1";
+                int numtenint = 1;
                 sqlconn.Open();
                 string sqlcode = "select  top 1   SUBSTRING(id_room_type,1,3)  from tb_room_type order by id_room_type desc";
                 string sqlnum = " select  top 1   SUBSTRING(id_room_type,4,1)  from tb_room_type order by id_room_type desc";
+                string sqlcodeten = "select  top 1   SUBSTRING(id_room_type,1,2)  from tb_room_type order by id_room_type desc";
+                string sqlnumten = " select  top 1   SUBSTRING(id_room_type,3,2)  from tb_room_type order by id_room_type desc";
                 SqlCommand sqlcomcode = new SqlCommand(sqlcode, sqlconn);
                 SqlCommand sqlcomnum = new SqlCommand(sqlnum, sqlconn);
+                SqlCommand sqlcomcodeten = new SqlCommand(sqlcodeten, sqlconn);
+                SqlCommand sqlcomnumten = new SqlCommand(sqlnumten, sqlconn);
 
                 using (sqlcomcode)
                 {
@@ -158,19 +165,52 @@ namespace WCFKostBackend
                 }
                 sqlconn.Close();
                 sqlconn.Open();
+                using (sqlcomcodeten)
+                {
+                    SqlDataReader drcodeten = sqlcomcodeten.ExecuteReader();
+                    if (drcodeten.Read())
+                    {
+                        kodeten = drcodeten.GetString(0);
+                    }
+                }
+                sqlconn.Close();
+
+                sqlconn.Open();
+                using (sqlcomnumten)
+                {
+                    SqlDataReader drnumten = sqlcomnumten.ExecuteReader();
+                    if (drnumten.Read())
+                    {
+                        noten = drnumten.GetString(0);
+                        numtenint = Convert.ToInt16(noten);
+
+                    }
+                }
+                sqlconn.Close();
+
+                sqlconn.Open();
                 using (sqlcomnum)
                 {
                     SqlDataReader drnum = sqlcomnum.ExecuteReader();
                     if (drnum.Read())
                     {
                         string num = drnum.GetString(0);
-                        int nomor = Convert.ToInt16(num) + 1;
+                        int numint = Convert.ToInt16(num);
+                        if (numint == 9)
+                        {
+                            numint = numtenint;
+                            kode = kodeten;
+                        }
+                        int nomor = numint + 1;
                         no = Convert.ToString(nomor);
                     }
                 }
                 tb_idroomtype.Text = kode + no;
 
                 sqlconn.Close();
+
+
+                tb_idroomtype.Text = kode + no;
             }
         }
         private int ValidateData()
