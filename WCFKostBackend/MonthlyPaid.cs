@@ -24,7 +24,7 @@ namespace WCFKostBackend
             AutoGenerate();
             cb_trans();
             cb_idtrans.SelectedIndex = -1;
-            tbfill();
+           // tbfill();
         }
         private void LoadTable()
         {
@@ -188,34 +188,34 @@ namespace WCFKostBackend
             MainMenu mm = new MainMenu();
             mm.Show();
         }
-        private void tbfill()
-        {
-            try
-            {
+        //private void tbfill()
+        //{
+        //    try
+        //    {
 
-                string kode = null;
-                Koneksi kon = new Koneksi();
-                string sql = "select id_room from tb_transaction where id_transaction = @idtrans;";
-                SqlConnection sqlcon = kon.getConnection();
-                sqlcon.Open();
-                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
-                using (sqlcom)
-                {
-                    sqlcom.Parameters.AddWithValue("@idtrans", cb_idtrans.Text);
-                    SqlDataReader drcode = sqlcom.ExecuteReader();
-                    if (drcode.Read())
-                    {
-                        kode = drcode.GetString(0);
-                    }
-                }
-                sqlcon.Close();
-                tb_idroom.Text = kode;
-                // MyConn2.Close();  
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //        string kode = null;
+        //        Koneksi kon = new Koneksi();
+        //        string sql = "select id_room from tb_transaction where id_transaction = @idtrans;";
+        //        SqlConnection sqlcon = kon.getConnection();
+        //        sqlcon.Open();
+        //        SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+        //        using (sqlcom)
+        //        {
+        //            sqlcom.Parameters.AddWithValue("@idtrans", cb_idtrans.Text);
+        //            SqlDataReader drcode = sqlcom.ExecuteReader();
+        //            if (drcode.Read())
+        //            {
+        //                kode = drcode.GetString(0);
+        //            }
+        //        }
+        //        sqlcon.Close();
+        //        tb_idroom.Text = kode;
+        //        // MyConn2.Close();  
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
     }
 }
