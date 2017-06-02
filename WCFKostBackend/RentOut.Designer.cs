@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentOut));
-            this.btn_rentin = new System.Windows.Forms.Button();
+            this.btn_rentout = new System.Windows.Forms.Button();
             this.tb_custname = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -43,22 +43,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cb_idtrans = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tb_idroom = new System.Windows.Forms.TextBox();
+            this.tb_idcust = new System.Windows.Forms.TextBox();
+            this.tb_idtrans = new System.Windows.Forms.TextBox();
+            this.btn_reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_rentout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_rentin
+            // btn_rentout
             // 
-            this.btn_rentin.Location = new System.Drawing.Point(141, 314);
-            this.btn_rentin.Name = "btn_rentin";
-            this.btn_rentin.Size = new System.Drawing.Size(73, 23);
-            this.btn_rentin.TabIndex = 80;
-            this.btn_rentin.Text = "Rent Out";
-            this.btn_rentin.UseVisualStyleBackColor = true;
+            this.btn_rentout.Enabled = false;
+            this.btn_rentout.Location = new System.Drawing.Point(141, 314);
+            this.btn_rentout.Name = "btn_rentout";
+            this.btn_rentout.Size = new System.Drawing.Size(73, 23);
+            this.btn_rentout.TabIndex = 80;
+            this.btn_rentout.Text = "Rent Out";
+            this.btn_rentout.UseVisualStyleBackColor = true;
+            this.btn_rentout.Click += new System.EventHandler(this.btn_rentout_Click);
             // 
             // tb_custname
             // 
@@ -118,12 +119,14 @@
             // 
             // dg_rentout
             // 
+            this.dg_rentout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_rentout.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dg_rentout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_rentout.Location = new System.Drawing.Point(372, 29);
+            this.dg_rentout.Location = new System.Drawing.Point(370, 29);
             this.dg_rentout.Name = "dg_rentout";
-            this.dg_rentout.Size = new System.Drawing.Size(327, 325);
+            this.dg_rentout.Size = new System.Drawing.Size(520, 325);
             this.dg_rentout.TabIndex = 72;
+            this.dg_rentout.SelectionChanged += new System.EventHandler(this.dg_rentout_SelectionChanged);
             // 
             // label7
             // 
@@ -177,7 +180,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(364, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 338);
+            this.label2.Size = new System.Drawing.Size(532, 338);
             this.label2.TabIndex = 67;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -202,50 +205,54 @@
             this.label5.TabIndex = 65;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // cb_idtrans
+            // tb_idroom
             // 
-            this.cb_idtrans.FormattingEnabled = true;
-            this.cb_idtrans.Location = new System.Drawing.Point(141, 123);
-            this.cb_idtrans.Name = "cb_idtrans";
-            this.cb_idtrans.Size = new System.Drawing.Size(184, 21);
-            this.cb_idtrans.TabIndex = 82;
+            this.tb_idroom.Enabled = false;
+            this.tb_idroom.Location = new System.Drawing.Point(141, 164);
+            this.tb_idroom.Name = "tb_idroom";
+            this.tb_idroom.Size = new System.Drawing.Size(184, 20);
+            this.tb_idroom.TabIndex = 83;
             // 
-            // textBox1
+            // tb_idcust
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(141, 164);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
-            this.textBox1.TabIndex = 83;
+            this.tb_idcust.Enabled = false;
+            this.tb_idcust.Location = new System.Drawing.Point(141, 213);
+            this.tb_idcust.Name = "tb_idcust";
+            this.tb_idcust.Size = new System.Drawing.Size(184, 20);
+            this.tb_idcust.TabIndex = 84;
             // 
-            // textBox2
+            // tb_idtrans
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(141, 213);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 20);
-            this.textBox2.TabIndex = 84;
+            this.tb_idtrans.Enabled = false;
+            this.tb_idtrans.Location = new System.Drawing.Point(141, 126);
+            this.tb_idtrans.Name = "tb_idtrans";
+            this.tb_idtrans.Size = new System.Drawing.Size(184, 20);
+            this.tb_idtrans.TabIndex = 85;
             // 
-            // pictureBox1
+            // btn_reset
             // 
-            this.pictureBox1.Image = global::WCFKostBackend.Properties.Resources.intro5;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(713, 371);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 64;
-            this.pictureBox1.TabStop = false;
+            this.btn_reset.BackgroundImage = global::WCFKostBackend.Properties.Resources.undo_small;
+            this.btn_reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_reset.Location = new System.Drawing.Point(295, 314);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(30, 23);
+            this.btn_reset.TabIndex = 86;
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // RentOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(715, 367);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.cb_idtrans);
-            this.Controls.Add(this.btn_rentin);
+            this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(904, 367);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.tb_idtrans);
+            this.Controls.Add(this.tb_idcust);
+            this.Controls.Add(this.tb_idroom);
+            this.Controls.Add(this.btn_rentout);
             this.Controls.Add(this.tb_custname);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
@@ -259,11 +266,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "RentOut";
             this.Text = "RentOut";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RentOut_FormClosed);
+            this.Load += new System.EventHandler(this.RentOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_rentout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,7 +278,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_rentin;
+        private System.Windows.Forms.Button btn_rentout;
         private System.Windows.Forms.TextBox tb_custname;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
@@ -285,10 +292,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cb_idtrans;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_idroom;
+        private System.Windows.Forms.TextBox tb_idcust;
+        private System.Windows.Forms.TextBox tb_idtrans;
+        private System.Windows.Forms.Button btn_reset;
 
 
 
