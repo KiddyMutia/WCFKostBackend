@@ -12,9 +12,9 @@ namespace WCFKostBackend
         {
             SqlConnection con = new SqlConnection(
 
-                "Data Source = USER\\MUTIAAYUDIANITA;" +
+                "Data Source = KIDDY\\DHANA;" +
                 "Initial Catalog = RentHouseBackend;" +
-                "User Id = andi; Password = andijuga"
+                "User Id = sa; Password = 123456"
              );
             return con;
         }

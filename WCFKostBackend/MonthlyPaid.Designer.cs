@@ -30,25 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonthlyPaid));
             this.btn_rentin = new System.Windows.Forms.Button();
-            this.tb_total = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dg_monthly = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cb_idtrans = new System.Windows.Forms.ComboBox();
             this.tb_info = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_idroom = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tb_idmonthly = new System.Windows.Forms.TextBox();
+            this.dg_transaction = new System.Windows.Forms.DataGridView();
+            this.tb_idtrans = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_monthly)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_transaction)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_rentin
@@ -61,33 +60,13 @@
             this.btn_rentin.UseVisualStyleBackColor = true;
             this.btn_rentin.Click += new System.EventHandler(this.btn_rentin_Click);
             // 
-            // tb_total
-            // 
-            this.tb_total.Enabled = false;
-            this.tb_total.Location = new System.Drawing.Point(138, 223);
-            this.tb_total.Name = "tb_total";
-            this.tb_total.Size = new System.Drawing.Size(184, 20);
-            this.tb_total.TabIndex = 78;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label11.Location = new System.Drawing.Point(37, 228);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 76;
-            this.label11.Text = "Total";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(37, 150);
+            this.label8.Location = new System.Drawing.Point(37, 180);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 13);
             this.label8.TabIndex = 73;
@@ -99,7 +78,7 @@
             this.dg_monthly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_monthly.Location = new System.Drawing.Point(369, 25);
             this.dg_monthly.Name = "dg_monthly";
-            this.dg_monthly.Size = new System.Drawing.Size(482, 325);
+            this.dg_monthly.Size = new System.Drawing.Size(482, 176);
             this.dg_monthly.TabIndex = 72;
             // 
             // label7
@@ -114,21 +93,11 @@
             this.label7.TabIndex = 71;
             this.label7.Text = "Monthly Paid Form";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(369, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(325, 325);
-            this.label6.TabIndex = 70;
-            this.label6.Text = resources.GetString("label6.Text");
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(20, 75);
+            this.label4.Location = new System.Drawing.Point(20, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(325, 273);
             this.label4.TabIndex = 69;
@@ -153,7 +122,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(361, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(496, 338);
+            this.label2.Size = new System.Drawing.Size(496, 377);
             this.label2.TabIndex = 67;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -174,17 +143,9 @@
             this.label5.BackColor = System.Drawing.SystemColors.InfoText;
             this.label5.Location = new System.Drawing.Point(13, 70);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(340, 286);
+            this.label5.Size = new System.Drawing.Size(340, 325);
             this.label5.TabIndex = 65;
             this.label5.Text = resources.GetString("label5.Text");
-            // 
-            // cb_idtrans
-            // 
-            this.cb_idtrans.FormattingEnabled = true;
-            this.cb_idtrans.Location = new System.Drawing.Point(137, 150);
-            this.cb_idtrans.Name = "cb_idtrans";
-            this.cb_idtrans.Size = new System.Drawing.Size(184, 21);
-            this.cb_idtrans.TabIndex = 83;
             // 
             // tb_info
             // 
@@ -212,7 +173,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(37, 188);
+            this.label9.Location = new System.Drawing.Point(37, 218);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 87;
@@ -221,7 +182,7 @@
             // tb_idroom
             // 
             this.tb_idroom.Enabled = false;
-            this.tb_idroom.Location = new System.Drawing.Point(137, 188);
+            this.tb_idroom.Location = new System.Drawing.Point(137, 218);
             this.tb_idroom.Name = "tb_idroom";
             this.tb_idroom.Size = new System.Drawing.Size(184, 20);
             this.tb_idroom.TabIndex = 88;
@@ -232,7 +193,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label12.Location = new System.Drawing.Point(37, 113);
+            this.label12.Location = new System.Drawing.Point(37, 143);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 13);
             this.label12.TabIndex = 89;
@@ -241,10 +202,28 @@
             // tb_idmonthly
             // 
             this.tb_idmonthly.Enabled = false;
-            this.tb_idmonthly.Location = new System.Drawing.Point(137, 113);
+            this.tb_idmonthly.Location = new System.Drawing.Point(137, 143);
             this.tb_idmonthly.Name = "tb_idmonthly";
             this.tb_idmonthly.Size = new System.Drawing.Size(184, 20);
             this.tb_idmonthly.TabIndex = 90;
+            // 
+            // dg_transaction
+            // 
+            this.dg_transaction.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dg_transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_transaction.Location = new System.Drawing.Point(369, 208);
+            this.dg_transaction.Name = "dg_transaction";
+            this.dg_transaction.Size = new System.Drawing.Size(482, 177);
+            this.dg_transaction.TabIndex = 91;
+            this.dg_transaction.SelectionChanged += new System.EventHandler(this.dg_transaction_SelectionChanged);
+            // 
+            // tb_idtrans
+            // 
+            this.tb_idtrans.Enabled = false;
+            this.tb_idtrans.Location = new System.Drawing.Point(138, 180);
+            this.tb_idtrans.Name = "tb_idtrans";
+            this.tb_idtrans.Size = new System.Drawing.Size(184, 20);
+            this.tb_idtrans.TabIndex = 92;
             // 
             // MonthlyPaid
             // 
@@ -252,21 +231,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WCFKostBackend.Properties.Resources.intro5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(865, 364);
+            this.ClientSize = new System.Drawing.Size(865, 418);
+            this.Controls.Add(this.tb_idtrans);
+            this.Controls.Add(this.dg_transaction);
             this.Controls.Add(this.tb_idmonthly);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tb_idroom);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_info);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cb_idtrans);
             this.Controls.Add(this.btn_rentin);
-            this.Controls.Add(this.tb_total);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dg_monthly);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -277,6 +254,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MonthlyPaid_FormClosed);
             this.Load += new System.EventHandler(this.MonthlyPaid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_monthly)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_transaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,24 +263,22 @@
         #endregion
 
         private System.Windows.Forms.Button btn_rentin;
-        private System.Windows.Forms.TextBox tb_total;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dg_monthly;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cb_idtrans;
         private System.Windows.Forms.TextBox tb_info;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_idroom;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tb_idmonthly;
+        private System.Windows.Forms.DataGridView dg_transaction;
+        private System.Windows.Forms.TextBox tb_idtrans;
 
     }
 }

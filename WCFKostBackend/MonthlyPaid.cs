@@ -21,10 +21,29 @@ namespace WCFKostBackend
         private void MonthlyPaid_Load(object sender, EventArgs e)
         {
             LoadTable();
+            LoadTableTrans();
             AutoGenerate();
-            cb_trans();
-            cb_idtrans.SelectedIndex = -1;
-           // tbfill();
+            btn_rentin.Enabled = false;
+        }
+        private void LoadTableTrans()
+        {
+            try
+            {
+                Koneksi kon = new Koneksi();
+                SqlConnection sqlcon = kon.getConnection();
+                string sql = "select id_transaction, id_room, id_customer,datein, dateout,status from tb_transaction;";
+                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                SqlDataAdapter sqlda = new SqlDataAdapter();
+                sqlda.SelectCommand = sqlcom;
+                DataTable dTable = new DataTable();
+                sqlda.Fill(dTable);
+                dg_transaction.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.               
+                sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void LoadTable()
         {
@@ -126,29 +145,6 @@ namespace WCFKostBackend
             }
 
         }
-        private void cb_trans()
-        {
-            try
-            {
-                Koneksi kon = new Koneksi();
-                string sql = "select * from tb_transaction where status='Rent In';";
-                SqlConnection sqlcon = kon.getConnection();
-                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
-                SqlDataAdapter MyAdapter = new SqlDataAdapter();
-                MyAdapter.SelectCommand = sqlcom;
-                DataTable dTable = new DataTable();
-                MyAdapter.Fill(dTable);
-                cb_idtrans.DataSource = dTable;
-                cb_idtrans.ValueMember = "id_transaction";
-                cb_idtrans.DisplayMember = "id_transaction";
-                // MyConn2.Close();  
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void btn_rentin_Click(object sender, EventArgs e)
         {
             Koneksi kon = new Koneksi();
@@ -161,7 +157,7 @@ namespace WCFKostBackend
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcom)
                 {
-                    sqlcom.Parameters.AddWithValue("@idtrans", cb_idtrans.Text);
+                    sqlcom.Parameters.AddWithValue("@idtrans", tb_idtrans.Text);
                     sqlcom.Parameters.AddWithValue("@date", DateTime.Now);
                     sqlcom.Parameters.AddWithValue("@info", tb_info.Text);
                     int res = sqlcom.ExecuteNonQuery();
@@ -176,9 +172,8 @@ namespace WCFKostBackend
         }
         private void ClearForm()
         {
-            cb_idtrans.SelectedIndex = 0;
+            tb_idtrans.Text= null;
             tb_idroom.Text = null;
-            tb_total.Text = null;
             tb_info.Text = null;
         }
 
@@ -187,6 +182,19 @@ namespace WCFKostBackend
             this.Hide();
             MainMenu mm = new MainMenu();
             mm.Show();
+        }
+
+        private void dg_transaction_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dg_transaction.SelectedRows)
+            {
+                string id = row.Cells[0].Value.ToString();
+                string idroom = row.Cells[1].Value.ToString();
+
+                tb_idtrans.Text = id;
+                tb_idroom.Text = idroom;
+                btn_rentin.Enabled = true;
+            }
         }
         //private void tbfill()
         //{
